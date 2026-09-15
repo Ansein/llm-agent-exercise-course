@@ -1,0 +1,22 @@
+[
+{"title":"张量计算\n与文本表示","lines":["第02课 · 客服意图分类","字符编码 → embedding → 手写反向","合成数据教学实验 · 180分钟"],"notes":"开场说明本课从零实现，不是为了替代框架，而是为了看清维度与梯度。完整讲稿见教师讲义。"},
+{"title":"为什么先讲张量","lines":["一句话怎么变成数字？张量有哪三个维度？","第01课用稀疏词袋，词与词独立","稠密表示可以学习相似性","但形状、mask、梯度一错就静默失效"],"notes":"三个开场提问；让学员先写batch×sequence×hidden。强调本课验收是能解释形状与梯度，不是把F1做高。00—15分钟。"},
+{"title":"文本 → ID → 张量","lines":["字符级分词，无需中文分词词典","<pad>索引0、<unk>索引1固定","ids/mask 形状 (batch, sequence)"],"notes":"打开encoding.py的tokenize与pad_batch。词表必须只从训练集构建。"},
+{"title":"三个维度","lines":["(batch, sequence)：一个batch的token编号","(batch, sequence, hidden)：查表后","(batch, hidden)：按mask池化后"],"notes":"白板画形状流转；课堂提问：hidden维度和词表大小谁决定参数量？"},
+{"title":"补齐与attention mask","lines":["补齐是为了把一个batch拼成矩阵","mask=1真实token，mask=0补齐位置","补齐不得改变有效文本的表示"],"notes":"来源encoding.py pad_batch。强调mask不是可选的优化，而是语义正确性的一部分。"},
+{"title":"词表的代价","lines":["训练集词表345项，未见字符记UNK","训练语料OOV发生率4.98%","字符级：词表小、序列长"],"notes":"来源reference/mini-autograd-v1/encoding-audit.json。对比子词分词：词表大、序列短。"},
+{"title":"embedding查表","lines":["表形状 (vocab, hidden)","查表 = 按行取向量","梯度用 np.add.at 累加到对应行"],"notes":"同一token在不同位置共享同一行；这正是“查表”与“线性层”的区别。"},
+{"title":"masked mean池化","lines":["按有效长度归一，而不是按补齐长度","权重 = mask / 有效长度","同一句话补到更宽画布，结果不变"],"notes":"白板推导：补齐参与均值会把0向量计入分母，表示被拉向原点。"},
+{"title":"交叉熵与数值稳定","lines":["softmax：概率总和为1","减去每行最大值再取log，避免溢出","损失对logits的梯度：(p − y) / N"],"notes":"来源autograd.py softmax_cross_entropy。课堂手算两分类一例。"},
+{"title":"反向传播的顺序","lines":["从损失出发，沿计算图回传","某个算子必须等它所有消费者算完","顺序写错时中间梯度保持0"],"notes":"这是本课最容易踩的坑：训练不报错，但参数不动。用数值梯度暴露它。"},
+{"title":"每个算子的局部梯度","lines":["线性层：dW = xᵀ·dY，dx = dY·Wᵀ","池化：梯度除以有效长度，再按mask展开","查表：同一token的多处梯度相加"],"notes":"打开autograd.py逐个算子对照。强调“局部梯度×上游梯度”的链式法则。"},
+{"title":"手写反向的数值校验","lines":["中心差分：(L(θ+ε) − L(θ−ε)) / 2ε","embedding与权重：相对误差5.2e-05","偏置：相对误差1.3e-09"],"notes":"来源reference/mini-autograd-v1/gradient-check.json，epsilon=1e-6。误差量级来自差分本身，不是实现错误。"},
+{"title":"训练一个最小分类器","lines":["参数量22860：embedding 22080＋分类头780","Adam，学习率0.05，batch 64，40轮","训练loss 1.72 → 0.0001"],"notes":"来源results.json的parameter_count与history。强调这是最小可解释模型，不是生产模型。"},
+{"title":"75分钟分组实验","lines":["15分钟：数据审计与编码，打印形状","20分钟：梯度校验，解释误差来源","25分钟：训练与读曲线，含5分钟休息","15分钟：缺陷复现与失败分析"],"notes":"80—155分钟。按学员实验手册A—F执行，先完成形状与梯度检查点。"},
+{"title":"冻结测试：与第01课对照","chart":true,"lines":[],"notes":"数据来自reference/mini-autograd-v1/results.json。蓝色为均值池化，橙色为第01课TF-IDF（冻结预测）。已知n=240，未知n=40。"},
+{"title":"质量、覆盖率与误收的取舍","lines":["强制分类：0.7456 vs 第01课0.6100","带拒识：0.4926，覆盖率52.9%","未知误收4/40，第01课为0/40"],"notes":"来源results.json。第01课冻结预测来自courseware/lesson-01/reference/baseline-v1/predictions.csv，本课不重新训练该模型。"},
+{"title":"配对区间跨0","lines":["按表达族配对bootstrap 1000次","均值池化F1 [0.365, 0.575]","差值区间 [−0.014, 0.255] 跨0"],"notes":"来源results.json的bootstrap_95_percent。不能断言稳定优于TF-IDF，但强制分类确有提升。"},
+{"title":"缺陷一：补齐参与均值","lines":["池化最大差异0.5243，30/280条预测改变","扩宽画布：正确实现漂移0，缺陷0.3401","该缺陷的测试F1反而更高"],"notes":"来源bug-diagnostics.json。重点：指标变好不能证明实现正确；它的代价是表示随batch组成漂移。"},
+{"title":"缺陷二：标签错位","lines":["末轮训练loss仍为1.6388（接近ln12）","强制分类macro-F1降到0.0915","诊断信号：loss不降、预测集中"],"notes":"来源bug-diagnostics.json。对应真实项目中的“标签读错列”“shuffle后忘记同步”。"},
+{"title":"课堂验收与作业","lines":["提交形状图、训练记录与两种错误的定位说明","证明补齐不改变有效文本的池化结果","解释一个失败案例；低分不等于作业不合格"],"notes":"155—180分钟。完整评分见参考答案与评分.md；70分通过。篡改数据或测试标签需重做。"}
+]

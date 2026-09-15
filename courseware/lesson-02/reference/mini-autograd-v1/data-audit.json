@@ -1,0 +1,42 @@
+{
+  "rows": 1280,
+  "known_rows": 1200,
+  "unknown_rows": 80,
+  "split_counts": {
+    "train": 720,
+    "validation": 280,
+    "test": 280
+  },
+  "known_test_rows": 240,
+  "unknown_test_rows": 40,
+  "customer_groups": 256,
+  "template_groups": 256,
+  "test_label_counts": {
+    "cancel_order": 20,
+    "change_address": 20,
+    "complaint": 20,
+    "exchange_request": 20,
+    "invoice": 20,
+    "payment": 20,
+    "product_info": 20,
+    "refund_status": 20,
+    "return_request": 20,
+    "shipping_status": 20,
+    "technical_help": 20,
+    "warranty": 20
+  },
+  "label_order": [
+    "shipping_status",
+    "cancel_order",
+    "refund_status",
+    "return_request",
+    "exchange_request",
+    "invoice",
+    "payment",
+    "change_address",
+    "warranty",
+    "technical_help",
+    "complaint",
+    "product_info"
+  ]
+}

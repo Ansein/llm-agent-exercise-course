@@ -1,0 +1,51 @@
+{
+  "vocab_size": 345,
+  "ngram_max": 1,
+  "min_count": 1,
+  "max_length": 128,
+  "sequence_length": {
+    "train": {
+      "count": 720,
+      "min": 7,
+      "p50": 16.0,
+      "p95": 22.0,
+      "p99": 24.0,
+      "max": 27,
+      "mean": 15.608333333333333
+    },
+    "validation": {
+      "count": 280,
+      "min": 8,
+      "p50": 17.0,
+      "p95": 24.0,
+      "p99": 25.0,
+      "max": 26,
+      "mean": 16.935714285714287
+    },
+    "test": {
+      "count": 280,
+      "min": 8,
+      "p50": 19.0,
+      "p95": 27.0,
+      "p99": 29.0,
+      "max": 33,
+      "mean": 19.32857142857143
+    }
+  },
+  "truncated_counts": {
+    "train": 0,
+    "validation": 0,
+    "test": 0
+  },
+  "truncated_ratio": {
+    "train": 0.0,
+    "validation": 0.0,
+    "test": 0.0
+  },
+  "total_tokens": 21392,
+  "oov_token_occurrences": 1065,
+  "oov_rate": 0.04978496634255797,
+  "pad_id": 0,
+  "unk_id": 1,
+  "label_count": 12
+}

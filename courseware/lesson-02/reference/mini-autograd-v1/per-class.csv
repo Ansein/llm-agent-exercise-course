@@ -1,0 +1,14 @@
+,name,support,recall,predicted_n
+shipping_status,物流查询,20,0.45,37
+cancel_order,取消订单,20,1.0,33
+refund_status,退款进度,20,1.0,29
+return_request,退货申请,20,0.5,20
+exchange_request,换货申请,20,0.75,25
+invoice,发票问题,20,0.5,17
+payment,支付问题,20,1.0,28
+change_address,修改收件信息,20,1.0,26
+warranty,保修维修,20,0.6,12
+technical_help,安装使用,20,1.0,23
+complaint,服务投诉,20,0.65,13
+product_info,售前咨询,20,0.6,17
+unknown,拒识/未知,40,,0

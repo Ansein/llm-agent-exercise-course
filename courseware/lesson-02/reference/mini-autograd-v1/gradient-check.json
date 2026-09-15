@@ -1,0 +1,24 @@
+{
+  "embedding_table": {
+    "analytic_abs_sum": 3.758682404976864,
+    "numeric_abs_sum": 3.7586823404822667,
+    "max_relative_error": 5.1488334251541334e-05,
+    "elements": 22080
+  },
+  "classifier_weight": {
+    "analytic_abs_sum": 1.5643773524277678,
+    "numeric_abs_sum": 1.5643773565443553,
+    "max_relative_error": 5.2587662241536846e-05,
+    "elements": 768
+  },
+  "classifier_bias": {
+    "analytic_abs_sum": 1.0017767207576762,
+    "numeric_abs_sum": 1.0017767209102857,
+    "max_relative_error": 1.259491734820643e-09,
+    "elements": 12
+  },
+  "loss_value": 2.4870950109047327,
+  "batch_rows": 6,
+  "epsilon": 1e-06,
+  "gradient_clip_applied_in_training": 5.0
+}

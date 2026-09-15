@@ -1,0 +1,63 @@
+{
+  "correct": {
+    "label": "正确实现",
+    "known_macro_f1_forced": 0.7455842480038143,
+    "known_accuracy_forced": 0.7541666666666667,
+    "final_train_loss": 9.671459226838095e-05,
+    "final_validation_loss": 0.6203575003895161,
+    "note": "补齐位置权重为0，标签与输入对应"
+  },
+  "padding_in_mean": {
+    "label": "补齐参与均值",
+    "known_macro_f1_forced": 0.7878968253968254,
+    "known_accuracy_forced": 0.7916666666666666,
+    "final_train_loss": 0.00013282803549921556,
+    "final_validation_loss": 0.6004968230807319,
+    "note": "池化被补齐位置的初始embedding拉偏",
+    "sensitivity": {
+      "rows": 280,
+      "sequence_width": 33,
+      "max_pooled_abs_difference": 0.5242531618516797,
+      "mean_pooled_abs_difference": 0.07335654319850027,
+      "prediction_changes": 30,
+      "macro_f1_correct": 0.7455842480038143,
+      "macro_f1_padding_in_mean": 0.7041982253925808
+    },
+    "max_pooled_abs_difference": 0.5242531618516797,
+    "prediction_changes": 30,
+    "batch_width_invariance": {
+      "masked_mean": {
+        "widths": [
+          33,
+          40,
+          64,
+          128
+        ],
+        "samples": 48,
+        "max_pooled_drift": 0.0,
+        "prediction_changes_across_widths": 0,
+        "note": "只扩宽不截断；正确实现的池化漂移应接近0"
+      },
+      "padding_in_mean": {
+        "widths": [
+          33,
+          40,
+          64,
+          128
+        ],
+        "samples": 48,
+        "max_pooled_drift": 0.34014561327839477,
+        "prediction_changes_across_widths": 21,
+        "note": "只扩宽不截断；正确实现的池化漂移应接近0"
+      }
+    }
+  },
+  "label_shift": {
+    "label": "标签错位1位",
+    "known_macro_f1_forced": 0.09150012569130216,
+    "known_accuracy_forced": 0.10416666666666667,
+    "final_train_loss": 1.6388182426790532,
+    "final_validation_loss": 3.684775037022257,
+    "note": "输入与标签不再对应，退化为随机"
+  }
+}
