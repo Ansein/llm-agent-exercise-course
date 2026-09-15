@@ -6,6 +6,12 @@
 
 ## 2026-09-15
 
+### 仓库版本控制基线
+
+- 初始化Git仓库并完成首次提交与推送，远程为[llm-agent-exercise-course](https://github.com/Ansein/llm-agent-exercise-course)（公开，默认分支`main`）。首提交`1712280`含119个文件，即44节大纲、项目任务书与第01课教学包。
+- 新增`.gitattributes`：冻结数据与参考输出的`sha256`已写入manifest，因此CSV、Notebook与HTML不做行尾归一化，保持字节一致；Markdown与源码统一LF。
+- 扩充`.gitignore`忽略`.chart-data-*/`；移除课件构建残留的临时目录与`__pycache__`，两者均不属于正式交付。
+
 ### 第01课完整教学样板
 
 - 新增[第01课教学包](courseware/lesson-01/README.md)：教师讲义、学员实验手册、参考答案与100分评分细则、作业模板及20页可编辑PowerPoint课件。
