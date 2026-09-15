@@ -1,0 +1,11 @@
+{
+  "verified_at": "2026-09-15",
+  "sha256": "7522266fadc9ea14a58a5eeb1d3a0f08b89e67624509b00d4ebaa08d1c66d33f",
+  "slides": 20,
+  "native_charts": 1,
+  "package_integrity_passed": true,
+  "layout_checks_passed": true,
+  "native_chart_workbook_passed": true,
+  "rendered_slides_reviewed": 20,
+  "native_powerpoint_open_verified": false
+}

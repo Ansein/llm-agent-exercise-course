@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.DS_Store
+courseware/*/runs/
+# 课件与图表构建工具产生的临时中间目录，不属于正式交付
+.chart-data-*/
+courseware/.chart-data-*/

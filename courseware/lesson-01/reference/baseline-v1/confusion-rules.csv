@@ -1,0 +1,14 @@
+,shipping_status,cancel_order,refund_status,return_request,exchange_request,invoice,payment,change_address,warranty,technical_help,complaint,product_info,unknown
+shipping_status,10,0,5,0,0,0,0,0,0,0,0,0,5
+cancel_order,5,0,0,0,0,0,5,0,0,0,0,0,10
+refund_status,0,0,0,0,0,0,5,0,0,0,0,0,15
+return_request,0,0,0,0,5,0,0,0,0,0,0,0,15
+exchange_request,0,0,0,0,0,0,0,0,0,0,0,0,20
+invoice,0,0,0,0,0,10,0,0,0,0,0,0,10
+payment,0,0,0,0,0,0,10,0,0,0,0,0,10
+change_address,0,0,0,0,0,0,0,0,0,0,0,0,20
+warranty,0,0,0,0,0,0,0,0,10,0,0,0,10
+technical_help,0,0,0,0,0,0,0,0,0,15,0,0,5
+complaint,0,0,0,0,0,0,0,0,0,0,5,0,15
+product_info,0,0,0,0,0,0,0,0,0,0,0,5,15
+unknown,0,0,0,0,0,0,0,0,0,0,0,0,40

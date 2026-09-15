@@ -1,0 +1,10 @@
+# 行尾策略：冻结数据与参考输出的 sha256 已写入 manifest，需保持字节一致。
+# 仓库内 CSV 由生成器写出 CRLF，不做归一化；仅对文本源码声明 LF。
+*.csv -text
+*.ipynb -text
+*.html -text
+*.md text eol=lf
+*.py text eol=lf
+*.mjs text eol=lf
+*.json text eol=lf
+*.txt text eol=lf

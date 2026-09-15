@@ -1,0 +1,21 @@
+{
+  "dataset_version": "1.0.0",
+  "seed": 20260914,
+  "description": "1200 known-intent samples plus 80 OOD samples; synthetic only",
+  "sha256": "6643d196c8122d9077c7fcf45d1f8ec2c90cd008654eeda0b8f157a1eaaf3bc7",
+  "rows": 1280,
+  "known_rows": 1200,
+  "counts": {
+    "train": 720,
+    "validation": 280,
+    "test": 280
+  },
+  "template_groups": 256,
+  "customer_groups": 256,
+  "source_hashes": {
+    "templates.json": "a6bd751d1a4b09b28bdd86842617f1ec70f43f6c9ddec34a6644fc280ceb868b",
+    "unknown_templates.json": "98474bd5674ce6bb2000bc75e9e9221fdca8d411f055fdbdd82836f401ec26a0"
+  },
+  "split_policy": "first 12/next 4/last 4 authored families per known label; OOD 8 validation and 8 test families; five variants per family",
+  "limitation": "Customer and template groups coincide in this fixture. Semantic and stylistic overlap remains; no production-generalization claim."
+}

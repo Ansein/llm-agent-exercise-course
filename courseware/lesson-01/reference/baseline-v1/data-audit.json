@@ -1,0 +1,22 @@
+{
+  "rows": 1280,
+  "known_rows": 1200,
+  "split_counts": {
+    "train": 720,
+    "validation": 280,
+    "test": 280
+  },
+  "customer_groups": 256,
+  "template_groups": 256,
+  "cross_split_customer_overlap": 0,
+  "cross_split_template_overlap": 0,
+  "normalized_duplicates": 0,
+  "near_duplicate_diagnostic": {
+    "threshold": 0.85,
+    "test_known_rows": 240,
+    "flagged_rows": 0,
+    "max_cosine": 0.689370950299443,
+    "median_nearest_cosine": 0.35057191646448443,
+    "method": "train-fitted char 2–4 TF-IDF cosine; flags are similarity diagnostics, not proof of semantic independence"
+  }
+}

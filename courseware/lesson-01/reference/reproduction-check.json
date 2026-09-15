@@ -1,0 +1,28 @@
+{
+  "verified_at": "2026-09-15",
+  "method": "fresh venv built from requirements-lock.txt; same machine, not independent human reproduction",
+  "dataset_hash_equal": true,
+  "threshold_equal": true,
+  "all_quality_metrics_equal": true,
+  "all_prediction_rows_equal": true,
+  "unit_tests_passed": 12,
+  "notebook_cells": 24,
+  "notebook_code_cells": 11,
+  "notebook_error_outputs": 0,
+  "notebook_png_outputs": 4,
+  "environment": {
+    "python": "3.12.13",
+    "platform": "macOS-27.0-arm64-arm-64bit",
+    "machine": "arm64",
+    "logical_cpu_count": 10,
+    "thread_limit": 1,
+    "packages": {
+      "numpy": "2.3.5",
+      "scipy": "1.16.3",
+      "scikit-learn": "1.7.2",
+      "pandas": "2.2.3",
+      "matplotlib": "3.10.8"
+    }
+  },
+  "reference_results_sha256": "57dbf548e77b3119fa0c8902dd69b011c6e02550556bfa5257d93cfc3073d7c3"
+}
