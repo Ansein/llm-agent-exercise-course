@@ -6,9 +6,10 @@
 
 ## 2026-09-15
 
-### 仓库版本控制基线
+### 仓库版本控制基线与来源图排除
 
-- 初始化Git仓库并完成首次提交与推送，远程为[llm-agent-exercise-course](https://github.com/Ansein/llm-agent-exercise-course)（公开，默认分支`main`）。首提交`1712280`含119个文件，即44节大纲、项目任务书与第01课教学包。
+- 初始化Git仓库并完成首次提交与推送，远程为[llm-agent-exercise-course](https://github.com/Ansein/llm-agent-exercise-course)（公开，默认分支`main`）。首提交含119个文件，即44节大纲、项目任务书与第01课教学包。
+- 来源长图改为仅在本机保留：`.gitignore`排除该图，并从首次提交起的全部提交中改写移除，不再进入版本库与公开仓库；README与来源映射改为文件名引用，AGENTS.md补充该边界。本地文件按规则继续保留，未压缩、未替换。
 - 新增`.gitattributes`：冻结数据与参考输出的`sha256`已写入manifest，因此CSV、Notebook与HTML不做行尾归一化，保持字节一致；Markdown与源码统一LF。
 - 扩充`.gitignore`忽略`.chart-data-*/`；移除课件构建残留的临时目录与`__pycache__`，两者均不属于正式交付。
 
